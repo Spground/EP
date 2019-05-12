@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    .git,
+    /**/__pycache__/*,
+    settings*.py,
+    manage.py,
+    wsgi.py,
+    /**/migrations/*,
+    db.sqlite3
+    README.md

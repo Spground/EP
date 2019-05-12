@@ -1,0 +1,19 @@
+{
+    "python.pythonPath": "/Users/spground/anaconda3/envs/erp/bin/python",
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "*test.py"
+    ],
+    "python.testing.pyTestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true
+}

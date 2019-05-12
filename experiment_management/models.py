@@ -5,7 +5,8 @@ from django.db import models
 class BaseModel(models.Model):
     create_dt = models.DateTimeField('create date', auto_now_add=True)
     update_dt = models.DateTimeField('update date', auto_now=True)
-    description = models.CharField(max_length=2000)
+    description = models.CharField(max_length=2000, default=None, blank=True,
+                                   null=True)
 
     class Meta:
         abstract = True
@@ -22,6 +23,8 @@ class ExperimentGroup(BaseModel):
 
 
 class Experiment(BaseModel):
+    name = models.CharField(max_length=2000, default=None, blank=True,
+                            null=True)
     experiment_group = models.ForeignKey(ExperimentGroup,
                                          related_name='experiments',
                                          on_delete=models.DO_NOTHING)
@@ -48,9 +51,10 @@ class ExperimentRecord(BaseModel):
 
 class ExperimentLog(BaseModel):
     info = models.CharField(max_length=2000)
+    experiment_record = models.ForeignKey(ExperimentRecord,
+                                          on_delete=models.DO_NOTHING)
 
 
-class ExperimentEnviroment(BaseModel):
+class ExperimentEnvironment(BaseModel):
     software_info = models.CharField(max_length=2000)
     hardware_info = models.CharField(max_length=2000)
-
